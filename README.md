@@ -183,25 +183,25 @@ Key observations from the diagram:
 ```
 BSP TICK ISR  ──uSchTic = 1U──►  SchEventManager(aTaskArray)
                                            │
-                               ┌───────────▼──────────────┐
+                               ┌───────────▼───────────────┐
                                │  while taskIdx < N        │   (stops early if
                                │  && uSchTic == 0          │    a new tick arrives)
                                │  DispatchTask(pTask)      │
-                               └───────────┬──────────────┘
+                               └───────────┬───────────────┘
                                            │
-                          ┌────────────────▼────────────────┐
-                          │  Static:  for each ring-buf slot  │
-                          │  Dynamic: while pEvt != NULL      │
-                          │  ProcessEvent(pEvt, Fnct, tick)   │
+                          ┌────────────────▼─────────────────┐
+                          │  Static:  for each ring-buf slot │
+                          │  Dynamic: while pEvt != NULL     │
+                          │  ProcessEvent(pEvt, Fnct, tick)  │
                           └──────┬─────────────────┬─────────┘
                                  │                 │
                            lTO > 0           lTO == 0
                                  │                 │
                           decrement lTO     call Fnct(pEvt)
                                                    │
-                                     ┌─────────────┴──────────────┐
-                                  lTimer > 0               lTimer == 0
-                                     │                            │
+                                     ┌─────────────┴─────────────┐
+                                  lTimer > 0             lTimer == 0
+                                     │                           │
                                lTO = lTimer              result == WAIT?
                                (periodic reload)          yes        no
                                                          FREE    re-dispatch
