@@ -1,0 +1,62 @@
+# Build artefacts
+build/
+out/
+*.o
+*.obj
+*.elf
+*.out
+*.abs
+*.hex
+*.bin
+*.map
+*.lst
+*.mot
+*.srec
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# IDE / toolchain
+.settings/
+.project
+.cproject
+.metadata/
+Debug/
+Release/
+*.uvprojx
+*.uvoptx
+*.uvguix
+*.jdebug
+*.jdebug.user
+*.eww
+*.ewp
+*.ewd
+*.dep
+*.xcodeproj/
+*.DS_Store
+
+# MPLAB X
+nbproject/
+build.xml
+Makefile
+
+# S32DS / Eclipse
+*.launch
+.classpath
+
+# Compiler output
+*.d
+*.i
+*.s
+*.a
+*.lib
+*.pdb
+
+# OS
+Thumbs.db
+.DS_Store
